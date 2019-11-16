@@ -1,0 +1,29 @@
+﻿
+@model Vidly.Models.ViewModels.RandomMovieViewModel
+@{
+    ViewBag.Title = "Customer View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Customers</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            @foreach (var customer in Model.Customers)
+            {
+            <tr>
+            <td>
+                <u>@Html.ActionLink(@customer.Name, "Details", "Customers",new { id= customer.Id},null)</u>
+                
+            </td>
+            </tr>
+
+            }
+
+    </tbody>
+</table>
