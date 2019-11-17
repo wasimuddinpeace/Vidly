@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -9,55 +10,38 @@ namespace Vidly.Controllers
 {
     public class CustomersController : Controller
     {
-        // GET: Customers
-        public ActionResult Index()
+        public ApplicationDbContext _context { get; set; }
+
+        public CustomersController()
         {
-            var movie = new Movie()
-            {
-                Name = "Shrek!"
-            };
-            var customers = new List<Customer>
-            {
-                new Customer {Id=1, Name="Asim"},
-               new Customer { Id=2 , Name="Waseem"},
-                new Customer { Id=3, Name="Junaid"},
-                 new Customer { Id=4, Name="Zubair"},
-                  new Customer { Id=5, Name="Uzair"}
-            };
+            _context = new ApplicationDbContext();
+        }
 
-            var viewModel = new Models.ViewModels.RandomMovieViewModel
-            {
-                Movie = movie,
-                Customers = customers
+        // GET: Customers
+        public ViewResult Index()
+        {
 
-            };
+            var customers = _context.Customers.Include(c=>c.MembershipType).ToList();
 
             // ViewData["Movie"] = movie;//of type obect
             //ViewBag.Movie = movie;//added on run time no compile time safety with viewbag
 
-            return View(viewModel);
+            return View(customers);
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
         public ActionResult Details(int id)
         {
-            var customer = GetCustomers().SingleOrDefault(c => c.Id == id);
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
 
             if (customer == null)
                 return HttpNotFound();
 
             return View(customer);
 
-        }
-        public IEnumerable<Customer> GetCustomers()
-        {
-            return new List<Customer>
-            {
-               new Customer {Id=1, Name="Asim"},
-               new Customer { Id=2 , Name="Waseem"},
-                new Customer { Id=3, Name="Junaid"},
-                 new Customer { Id=4, Name="Zubair"},
-                  new Customer { Id=5, Name="Uzair"}
-            };
         }
     }
 }

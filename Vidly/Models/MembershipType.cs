@@ -6,5 +6,6 @@
         public short SignupFee { get; set; }
         public byte DurationInMonths { get; set; }
         public byte Discount { get; set; }
+        public string Name { get; set; }
     }
 }

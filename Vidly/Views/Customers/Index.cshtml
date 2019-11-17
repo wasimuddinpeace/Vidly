@@ -1,29 +1,26 @@
-﻿
-@model Vidly.Models.ViewModels.RandomMovieViewModel
+﻿@model IEnumerable<Vidly.Models.Customer>
 @{
-    ViewBag.Title = "Customer View";
+    ViewBag.Title = "Customers";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
 <table class="table table-striped">
     <thead>
         <tr>
             <th scope="col">Customers</th>
+            <th scope="col">Discount Rate</th>
         </tr>
     </thead>
     <tbody>
-        
-            @foreach (var customer in Model.Customers)
+
+        @foreach (var customer in Model)
             {
             <tr>
-            <td>
-                <u>@Html.ActionLink(@customer.Name, "Details", "Customers",new { id= customer.Id},null)</u>
-                
-            </td>
-            </tr>
+                <td><u>@Html.ActionLink(@customer.Name, "Details", "Customers", new { id = customer.Id }, null)</u></td>
+                <td>@customer.MembershipType.Discount%</td>
+          </tr>
 
             }
 
     </tbody>
 </table>
+

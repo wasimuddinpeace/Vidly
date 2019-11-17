@@ -215,6 +215,18 @@
     <Compile Include="Migrations\201911161859459_Populating the Membershiptype table.Designer.cs">
       <DependentUpon>201911161859459_Populating the Membershiptype table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911161921278_Adding DataAnnotation.cs" />
+    <Compile Include="Migrations\201911161921278_Adding DataAnnotation.Designer.cs">
+      <DependentUpon>201911161921278_Adding DataAnnotation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911162357279_Added Name Prop to the MembershipType class.cs" />
+    <Compile Include="Migrations\201911162357279_Added Name Prop to the MembershipType class.Designer.cs">
+      <DependentUpon>201911162357279_Added Name Prop to the MembershipType class.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911162359356_Updating MembershipType table property name with some names.cs" />
+    <Compile Include="Migrations\201911162359356_Updating MembershipType table property name with some names.Designer.cs">
+      <DependentUpon>201911162359356_Updating MembershipType table property name with some names.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -313,6 +325,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911161859459_Populating the Membershiptype table.resx">
       <DependentUpon>201911161859459_Populating the Membershiptype table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911161921278_Adding DataAnnotation.resx">
+      <DependentUpon>201911161921278_Adding DataAnnotation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911162357279_Added Name Prop to the MembershipType class.resx">
+      <DependentUpon>201911162357279_Added Name Prop to the MembershipType class.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911162359356_Updating MembershipType table property name with some names.resx">
+      <DependentUpon>201911162359356_Updating MembershipType table property name with some names.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
