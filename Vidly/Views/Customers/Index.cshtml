@@ -7,6 +7,7 @@
     <thead>
         <tr>
             <th scope="col">Customers</th>
+            <th scope="col">Membership Type</th>
             <th scope="col">Discount Rate</th>
         </tr>
     </thead>
@@ -15,7 +16,8 @@
         @foreach (var customer in Model)
             {
             <tr>
-                <td><u>@Html.ActionLink(@customer.Name, "Details", "Customers", new { id = customer.Id }, null)</u></td>
+                <td><u>@Html.ActionLink(@customer.Name, "Edit", "Customers", new { id = customer.Id }, null)</u></td>
+                <td>@customer.MembershipType.Name</td>
                 <td>@customer.MembershipType.Discount%</td>
           </tr>
 

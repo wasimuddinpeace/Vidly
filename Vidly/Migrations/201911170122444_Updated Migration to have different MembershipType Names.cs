@@ -3,7 +3,7 @@ namespace Vidly.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class UpdatingMembershipTypetablepropertynamewithsomenames : DbMigration
+    public partial class UpdatedMigrationtohavedifferentMembershipTypeNames : DbMigration
     {
         public override void Up()
         {
@@ -13,7 +13,7 @@ namespace Vidly.Migrations
             Sql("UPDATE MembershipTypes SET Name = 'Anually' WHERE MembershipTypeId = 4");
 
         }
-        
+
         public override void Down()
         {
         }

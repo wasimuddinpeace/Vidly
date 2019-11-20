@@ -80,12 +80,24 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -195,7 +207,9 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\API\CustomersController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -227,13 +241,31 @@
     <Compile Include="Migrations\201911162359356_Updating MembershipType table property name with some names.Designer.cs">
       <DependentUpon>201911162359356_Updating MembershipType table property name with some names.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911170122444_Updated Migration to have different MembershipType Names.cs" />
+    <Compile Include="Migrations\201911170122444_Updated Migration to have different MembershipType Names.Designer.cs">
+      <DependentUpon>201911170122444_Updated Migration to have different MembershipType Names.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911170933062_UpdatingProperty.cs" />
+    <Compile Include="Migrations\201911170933062_UpdatingProperty.Designer.cs">
+      <DependentUpon>201911170933062_UpdatingProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911170935168_Updated Display Name of Birthdate prop in customer.cs" />
+    <Compile Include="Migrations\201911170935168_Updated Display Name of Birthdate prop in customer.Designer.cs">
+      <DependentUpon>201911170935168_Updated Display Name of Birthdate prop in customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911172258225_Few changes to Customer Model.cs" />
+    <Compile Include="Migrations\201911172258225_Few changes to Customer Model.Designer.cs">
+      <DependentUpon>201911172258225_Few changes to Customer Model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Min18yearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\ViewModels\NewCustomerViewModel.cs" />
     <Compile Include="Models\ViewModels\RandomMovieViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -304,6 +336,7 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -334,6 +367,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911162359356_Updating MembershipType table property name with some names.resx">
       <DependentUpon>201911162359356_Updating MembershipType table property name with some names.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911170122444_Updated Migration to have different MembershipType Names.resx">
+      <DependentUpon>201911170122444_Updated Migration to have different MembershipType Names.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911170933062_UpdatingProperty.resx">
+      <DependentUpon>201911170933062_UpdatingProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911170935168_Updated Display Name of Birthdate prop in customer.resx">
+      <DependentUpon>201911170935168_Updated Display Name of Birthdate prop in customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911172258225_Few changes to Customer Model.resx">
+      <DependentUpon>201911172258225_Few changes to Customer Model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
